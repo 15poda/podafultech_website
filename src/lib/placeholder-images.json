@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Abstract futuristic automation background",
+      "imageUrl": "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmdXR1cmlzdGljJTIwdGVjaG5vbG9neXxlbnwwfHx8fDE3NzA2NDUxMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "futuristic technology"
+    },
+    {
+      "id": "portfolio-ecommerce",
+      "description": "E-commerce fulfillment automation dashboard",
+      "imageUrl": "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxlY29tbWVyY2UlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzcwNjQ1MTQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ecommerce dashboard"
+    },
+    {
+      "id": "portfolio-ai-support",
+      "description": "AI-powered customer support interface",
+      "imageUrl": "https://images.unsplash.com/photo-1694903089438-bf28d4697d9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc3MDY0MjIwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "portfolio-workflow",
+      "description": "Visual workflow automation builder",
+      "imageUrl": "https://images.unsplash.com/photo-1634476229749-a2e480a919d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMHdvcmtmbG93fGVufDB8fHx8MTc3MDY0NTE0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "software workflow"
+    },
+    {
+      "id": "portfolio-analytics",
+      "description": "Real-time business analytics report",
+      "imageUrl": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBhbmFseXRpY3N8ZW58MHx8fHwxNzcwNTgwNTI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business analytics"
+    }
+  ]
 }
