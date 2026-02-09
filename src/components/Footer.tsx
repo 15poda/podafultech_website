@@ -44,11 +44,11 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                hello@podafultech.io
+                emmanuel@podafultech.com
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
-                Innovation Hub, San Francisco
+                Harare, Zimbabwe
               </li>
             </ul>
           </div>
