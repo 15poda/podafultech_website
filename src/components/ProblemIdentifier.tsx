@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { AlertTriangle, Clock, TrendingDown, Users, Database } from "lucide-react"
+import { ContactDialog } from "@/components/ContactDialog"
 
 const problems = [
   {
@@ -68,9 +69,11 @@ export function ProblemIdentifier() {
             <CardContent className="p-0">
               <h3 className="text-2xl font-bold text-primary mb-2">Sound Familiar?</h3>
               <p className="text-muted-foreground mb-6">You're not alone. Let's fix it.</p>
-              <button className="text-accent font-bold hover:underline inline-flex items-center gap-2">
-                Talk to an Expert <Clock className="h-4 w-4" />
-              </button>
+              <ContactDialog>
+                <button className="text-accent font-bold hover:underline inline-flex items-center gap-2">
+                  Talk to an Expert <Clock className="h-4 w-4" />
+                </button>
+              </ContactDialog>
             </CardContent>
           </Card>
         </div>
