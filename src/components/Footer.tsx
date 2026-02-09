@@ -1,6 +1,6 @@
 "use client"
 
-import { Cpu, Mail, MapPin, Twitter, Linkedin, Github } from "lucide-react"
+import { Mail, MapPin, Twitter, Linkedin, Github } from "lucide-react"
 
 export function Footer() {
   return (
@@ -9,9 +9,6 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Cpu className="text-primary-foreground h-5 w-5" />
-              </div>
               <span className="text-2xl font-bold tracking-tight font-headline">
                 PODAful<span className="text-primary">tech</span>
               </span>
