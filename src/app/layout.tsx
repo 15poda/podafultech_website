@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Automation Ace | Custom Automation Solutions',
+  title: 'PODAfultech | Custom Automation Solutions',
   description: 'Streamline your business with custom automation services. Innovative, efficient, and sophisticated solutions.',
 };
 

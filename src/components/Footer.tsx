@@ -13,7 +13,7 @@ export function Footer() {
                 <Cpu className="text-primary-foreground h-5 w-5" />
               </div>
               <span className="text-2xl font-bold tracking-tight font-headline">
-                Automation<span className="text-primary">Ace</span>
+                PODAful<span className="text-primary">tech</span>
               </span>
             </div>
             <p className="text-muted-foreground text-lg max-w-sm mb-8">
@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                hello@automationace.io
+                hello@podafultech.io
               </li>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
@@ -59,7 +59,7 @@ export function Footer() {
         
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Automation Ace. All rights reserved.
+            © {new Date().getFullYear()} PODAfultech. All rights reserved.
           </p>
           <div className="flex gap-8">
             <a href="#" className="text-xs text-muted-foreground hover:text-white">Privacy Policy</a>

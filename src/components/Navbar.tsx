@@ -14,7 +14,7 @@ export function Navbar() {
               <Cpu className="text-primary-foreground h-6 w-6" />
             </div>
             <span className="text-xl font-bold tracking-tight font-headline">
-              Automation<span className="text-primary">Ace</span>
+              PODAful<span className="text-primary">tech</span>
             </span>
           </div>
           
