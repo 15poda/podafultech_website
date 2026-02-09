@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { MessageSquare } from "lucide-react"
 import Link from "next/link"
+import { ContactDialog } from "@/components/ContactDialog"
 
 export function Navbar() {
   return (
@@ -22,10 +23,12 @@ export function Navbar() {
           </div>
 
           <div>
-            <Button className="font-semibold gap-2">
-              <MessageSquare className="h-4 w-4" />
-              Chat With Us
-            </Button>
+            <ContactDialog>
+              <Button className="font-semibold gap-2">
+                <MessageSquare className="h-4 w-4" />
+                Chat With Us
+              </Button>
+            </ContactDialog>
           </div>
         </div>
       </div>

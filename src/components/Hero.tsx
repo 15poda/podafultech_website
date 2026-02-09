@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { MessageSquare, ArrowRight, Zap, Shield, Sparkles } from "lucide-react"
+import { ContactDialog } from "@/components/ContactDialog"
 
 export function Hero() {
   return (
@@ -27,13 +28,17 @@ export function Hero() {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in [animation-delay:600ms]">
-          <Button size="lg" className="h-14 px-8 text-lg font-bold gap-2">
-            <MessageSquare className="h-5 w-5" />
-            Chat With Us
-          </Button>
-          <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-white/10 hover:bg-white/5 transition-all">
-            Explore Portfolio
-            <ArrowRight className="ml-2 h-5 w-5" />
+          <ContactDialog>
+            <Button size="lg" className="h-14 px-8 text-lg font-bold gap-2">
+              <MessageSquare className="h-5 w-5" />
+              Chat With Us
+            </Button>
+          </ContactDialog>
+          <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-white/10 hover:bg-white/5 transition-all" asChild>
+            <a href="#portfolio">
+              Explore Portfolio
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
           </Button>
         </div>
 

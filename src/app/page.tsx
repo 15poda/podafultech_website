@@ -7,6 +7,7 @@ import { Portfolio } from "@/components/Portfolio"
 import { Footer } from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import { MessageSquare, Rocket } from "lucide-react"
+import { ContactDialog } from "@/components/ContactDialog"
 
 export default function Home() {
   return (
@@ -71,14 +72,18 @@ export default function Home() {
             Stop losing time to manual work. Our experts are ready to build the automation engine your business deserves.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Button size="lg" variant="secondary" className="h-16 px-10 text-xl font-bold gap-3 shadow-xl hover:scale-105 transition-transform">
-              <MessageSquare className="h-6 w-6" />
-              Start Free Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="h-16 px-10 text-xl font-bold bg-white/10 text-white border-white/20 hover:bg-white/20 gap-3">
-              <Rocket className="h-6 w-6" />
-              Chat With An Expert
-            </Button>
+            <ContactDialog>
+              <Button size="lg" variant="secondary" className="h-16 px-10 text-xl font-bold gap-3 shadow-xl hover:scale-105 transition-transform">
+                <MessageSquare className="h-6 w-6" />
+                Start Free Consultation
+              </Button>
+            </ContactDialog>
+            <ContactDialog>
+              <Button size="lg" variant="outline" className="h-16 px-10 text-xl font-bold bg-white/10 text-white border-white/20 hover:bg-white/20 gap-3">
+                <Rocket className="h-6 w-6" />
+                Chat With An Expert
+              </Button>
+            </ContactDialog>
           </div>
           <p className="mt-8 text-primary-foreground/70 text-sm">
             Avg. response time: Under 15 minutes during business hours.
