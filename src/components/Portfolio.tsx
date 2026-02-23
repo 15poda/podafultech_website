@@ -50,7 +50,7 @@ export function Portfolio() {
             </p>
           </div>
           <div>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">40+ Projects Delivered</Badge>
+            <Badge variant="secondary" className="px-4 py-2 text-sm">5 Projects Delivered</Badge>
           </div>
         </div>
 
