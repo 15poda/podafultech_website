@@ -3,37 +3,37 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
+import { PlaceHolderImages } from "@/app/lib/placeholder-images"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, ArrowRight } from "lucide-react"
 
 const projects = [
   {
     id: "portfolio-loan-tracking",
-    title: "LendFlow: Microfinance Engine",
+    title: "Loan-Tracking Ecosystem",
     category: "Financial Automation",
-    description: "Transformed manual spreadsheets into a high-velocity loan management ecosystem. Features bulk repayment processing and automated WhatsApp collection reminders.",
+    description: "Transformed manual spreadsheets into a high-velocity loan management engine for a Microfinance company. Features bulk repayment processing and automated WhatsApp collection reminders.",
     metrics: "100% Repayment Sync"
   },
   {
     id: "portfolio-fabrication-pm",
-    title: "NexusBuild: Site Operations",
+    title: "Project Operations Portal",
     category: "Operations Management",
-    description: "Synchronized multi-site fabrication reports into a central executive dashboard. Features inventory tracking, geofenced portals, and real-time profitability analysis.",
+    description: "Synchronized multi-site fabrication reports into a central executive dashboard for an Aluminium & Glass Fabricator. Features inventory tracking and real-time profitability analysis.",
     metrics: "Real-time P&L"
   },
   {
     id: "portfolio-shipping-ai",
-    title: "CargoAI: Logistics Concierge",
-    category: "AI Experience",
-    description: "An intelligent WhatsApp AI agent that handles complex shipment inquiries instantly. Reduced support desk load by providing real-time ETA and status updates via chat.",
+    title: "Cargo Concierge AI",
+    category: "AI Integration",
+    description: "An intelligent WhatsApp AI agent for a logistics firm that handles complex shipment inquiries instantly. Reduced support desk load by providing real-time status updates.",
     metrics: "Instant Support"
   },
   {
     id: "portfolio-hr-geofence",
-    title: "HR-Sense: Workforce Intel",
-    category: "HR Automation",
-    description: "Remote attendance tracking utilizing Google Maps geofencing. Automatically reconciles timesheets with payroll and leave management modules.",
+    title: "Geofenced HR Intelligence",
+    category: "Workforce Automation",
+    description: "Remote attendance tracking utilizing Google Maps geofencing. Automatically reconciles timesheets with payroll and leave management modules for distributed teams.",
     metrics: "Geofenced Accuracy"
   }
 ]
