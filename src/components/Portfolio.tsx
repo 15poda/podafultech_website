@@ -9,30 +9,30 @@ import { ExternalLink, ArrowRight } from "lucide-react"
 const projects = [
   {
     id: "portfolio-loan-tracking",
-    title: "LendFlow: Loan-Tracking Ecosystem",
+    title: "LendFlow: Loan-Tracking System",
     category: "Financial Automation",
-    description: "A high-velocity business engine for a Microfinance firm. We replaced manual spreadsheets with automated bulk repayment processing and intelligent WhatsApp collection reminders. The system even automates relationship management with personalized birthday and holiday greetings.",
+    description: "We revolutionized a Microfinance company's operations by replacing manual spreadsheets with a high-velocity business engine. The system automates bulk repayment processing, tracks customer data with precision, and triggers intelligent WhatsApp reminders. It even fosters long-term client relationships with automated personalized messages for birthdays and holidays.",
     metrics: "100% Repayment Sync"
   },
   {
     id: "portfolio-fabrication-pm",
     title: "NexusBuild: Project Operations Portal",
     category: "Operations Management",
-    description: "A central executive hub for an Aluminium & Glass Fabricator. It synchronizes site reports from across Zimbabwe into a single dashboard. Features include real-time inventory tracking, multi-site profitability analysis, and automated Profit and Loss statements.",
+    description: "For a leading Aluminium & Glass Fabricator, we developed a centralized executive hub that synchronizes multi-site operations across Zimbabwe. Teams update progress via dedicated portals, while administrators gain real-time visibility into inventory usage, project profitability, and automated Profit and Loss statements, eliminating the need for constant manual coordination.",
     metrics: "Real-time P&L"
   },
   {
     id: "portfolio-shipping-ai",
     title: "ShipSense: Cargo Concierge AI",
     category: "AI Integration",
-    description: "An intelligent WhatsApp-based AI agent for a logistics firm handling China-to-Zimbabwe cargo. It instantly processes complex shipment inquiries by digging through databases to provide real-time status updates, significantly reducing customer service overhead.",
+    description: "We built an intelligent WhatsApp-based AI agent for a China-to-Zimbabwe logistics firm to handle the high volume of shipment inquiries. The agent autonomously accesses status databases to provide instant, simultaneous updates on cargo location and arrival times, drastically reducing customer service overhead and wait times.",
     metrics: "Instant Support"
   },
   {
     id: "portfolio-hr-geofence",
     title: "GeoSync: Geofenced HR Intelligence",
     category: "Workforce Automation",
-    description: "A sophisticated remote attendance system using Google Maps geofencing. Employees register presence via a portal, validated only within 50m of the workplace. The system seamlessly integrates timesheets with automated payroll and leave management modules.",
+    description: "A sophisticated remote workforce management system utilizing Google Maps geofencing. Employees register presence via a secure portal, with validation restricted to a 50m radius of the workplace. The platform integrates real-time timesheets with automated payroll and leave management modules, giving leadership complete visibility from anywhere.",
     metrics: "Geofenced Accuracy"
   }
 ]
