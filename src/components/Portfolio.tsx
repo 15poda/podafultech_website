@@ -1,4 +1,3 @@
-
 "use client"
 
 import Image from "next/image"
@@ -10,30 +9,30 @@ import { ExternalLink, ArrowRight } from "lucide-react"
 const projects = [
   {
     id: "portfolio-loan-tracking",
-    title: "Loan-Tracking Ecosystem",
+    title: "LendFlow: Loan-Tracking Ecosystem",
     category: "Financial Automation",
-    description: "Transformed manual spreadsheets into a high-velocity loan management engine for a Microfinance company. Features bulk repayment processing and automated WhatsApp collection reminders.",
+    description: "A high-velocity business engine for a Microfinance firm. We replaced manual spreadsheets with automated bulk repayment processing and intelligent WhatsApp collection reminders. The system even automates relationship management with personalized birthday and holiday greetings.",
     metrics: "100% Repayment Sync"
   },
   {
     id: "portfolio-fabrication-pm",
-    title: "Project Operations Portal",
+    title: "NexusBuild: Project Operations Portal",
     category: "Operations Management",
-    description: "Synchronized multi-site fabrication reports into a central executive dashboard for an Aluminium & Glass Fabricator. Features inventory tracking and real-time profitability analysis.",
+    description: "A central executive hub for an Aluminium & Glass Fabricator. It synchronizes site reports from across Zimbabwe into a single dashboard. Features include real-time inventory tracking, multi-site profitability analysis, and automated Profit and Loss statements.",
     metrics: "Real-time P&L"
   },
   {
     id: "portfolio-shipping-ai",
-    title: "Cargo Concierge AI",
+    title: "ShipSense: Cargo Concierge AI",
     category: "AI Integration",
-    description: "An intelligent WhatsApp AI agent for a logistics firm that handles complex shipment inquiries instantly. Reduced support desk load by providing real-time status updates.",
+    description: "An intelligent WhatsApp-based AI agent for a logistics firm handling China-to-Zimbabwe cargo. It instantly processes complex shipment inquiries by digging through databases to provide real-time status updates, significantly reducing customer service overhead.",
     metrics: "Instant Support"
   },
   {
     id: "portfolio-hr-geofence",
-    title: "Geofenced HR Intelligence",
+    title: "GeoSync: Geofenced HR Intelligence",
     category: "Workforce Automation",
-    description: "Remote attendance tracking utilizing Google Maps geofencing. Automatically reconciles timesheets with payroll and leave management modules for distributed teams.",
+    description: "A sophisticated remote attendance system using Google Maps geofencing. Employees register presence via a portal, validated only within 50m of the workplace. The system seamlessly integrates timesheets with automated payroll and leave management modules.",
     metrics: "Geofenced Accuracy"
   }
 ]
@@ -86,7 +85,7 @@ export function Portfolio() {
                       {project.description}
                     </p>
                     <div className="flex items-center text-accent text-sm font-bold gap-1 group-hover:gap-2 transition-all">
-                      View Project Details <ArrowRight className="h-4 w-4" />
+                      View Case Study <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>
                 </Link>

@@ -1,34 +1,33 @@
-
 {
   "placeholderImages": [
     {
       "id": "hero-bg",
       "description": "Abstract futuristic automation background",
-      "imageUrl": "https://picsum.photos/seed/poda-hero/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/poda-hero-v2/1920/1080",
       "imageHint": "futuristic technology"
     },
     {
       "id": "portfolio-loan-tracking",
       "description": "Financial loan management dashboard",
-      "imageUrl": "https://picsum.photos/seed/poda-loan/1200/800",
+      "imageUrl": "https://picsum.photos/seed/poda-finance-dash/1200/800",
       "imageHint": "finance dashboard"
     },
     {
       "id": "portfolio-fabrication-pm",
       "description": "Construction and fabrication project management",
-      "imageUrl": "https://picsum.photos/seed/poda-fabrication/1200/800",
+      "imageUrl": "https://picsum.photos/seed/poda-glass-fab/1200/800",
       "imageHint": "construction management"
     },
     {
       "id": "portfolio-shipping-ai",
       "description": "Logistics and shipping tracking AI",
-      "imageUrl": "https://picsum.photos/seed/poda-shipping/1200/800",
+      "imageUrl": "https://picsum.photos/seed/poda-logistics-v2/1200/800",
       "imageHint": "logistics tracking"
     },
     {
       "id": "portfolio-hr-geofence",
       "description": "HR management and geofencing interface",
-      "imageUrl": "https://picsum.photos/seed/poda-hr/1200/800",
+      "imageUrl": "https://picsum.photos/seed/poda-hr-geo/1200/800",
       "imageHint": "human resources"
     }
   ]
