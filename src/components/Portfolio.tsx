@@ -12,7 +12,7 @@ const projects = [
     title: "LendFlow: Loan-Tracking System",
     category: "Financial Automation",
     description: "We revolutionized a Microfinance company's operations by replacing manual spreadsheets with a high-velocity business engine. The system automates bulk repayment processing, tracks customer data with precision, and triggers intelligent WhatsApp reminders. It even fosters long-term client relationships with automated personalized messages for birthdays and holidays.",
-    metrics: "100% Repayment Sync"
+    metrics: "100% Accuracy"
   },
   {
     id: "portfolio-fabrication-pm",
@@ -26,14 +26,14 @@ const projects = [
     title: "ShipSense: Cargo Concierge AI",
     category: "AI Integration",
     description: "We built an intelligent WhatsApp-based AI agent for a China-to-Zimbabwe logistics firm to handle the high volume of shipment inquiries. The agent autonomously accesses status databases to provide instant, simultaneous updates on cargo location and arrival times, drastically reducing customer service overhead and wait times.",
-    metrics: "Instant Support"
+    metrics: "24/7 AI Support"
   },
   {
     id: "portfolio-hr-geofence",
     title: "GeoSync: Geofenced HR Intelligence",
     category: "Workforce Automation",
     description: "A sophisticated remote workforce management system utilizing Google Maps geofencing. Employees register presence via a secure portal, with validation restricted to a 50m radius of the workplace. The platform integrates real-time timesheets with automated payroll and leave management modules, giving leadership complete visibility from anywhere.",
-    metrics: "Geofenced Accuracy"
+    metrics: "Geofenced Precise"
   }
 ]
 

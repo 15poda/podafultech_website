@@ -21,7 +21,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "portfolio-fabrication-pm",
     "description": "Construction and fabrication project management",
-    "imageUrl": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25zdHJ1Y3Rpb24lMjBtYW5hZ2VtZW50fGVufDB8fHx8MTc3MDY0NTE0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "imageUrl": "https://live.staticflickr.com/65535/55136389216_730088a2e1_b.jpg",
     "imageHint": "construction management"
   },
   {
