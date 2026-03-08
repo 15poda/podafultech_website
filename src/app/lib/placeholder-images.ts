@@ -27,7 +27,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "portfolio-shipping-ai",
     "description": "Logistics and shipping tracking AI",
-    "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2dpc3RpY3N8ZW58MHx8fHwxNzcwNjQ1MTQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "imageUrl": "https://live.staticflickr.com/65535/55135561182_f798b95582_b.jpg",
     "imageHint": "logistics tracking"
   },
   {
