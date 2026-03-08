@@ -1,3 +1,4 @@
+
 export type ImagePlaceholder = {
   id: string;
   description: string;
@@ -33,7 +34,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "portfolio-hr-geofence",
     "description": "HR management and geofencing interface",
-    "imageUrl": "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsdW1hbiUyMHJlc291cmNlc3xlbnwwfHx8fDE3NzA2NDUxNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "imageUrl": "https://live.staticflickr.com/65535/55135604562_d2baef69a9_b.jpg",
     "imageHint": "human resources"
   }
 ];
