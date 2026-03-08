@@ -9,31 +9,31 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "hero-bg",
     "description": "Abstract futuristic automation background",
-    "imageUrl": "https://picsum.photos/seed/poda-hero-v5/1920/1080",
+    "imageUrl": "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmdXR1cmlzdGljJTIwdGVjaG5vbG9neXxlbnwwfHx8fDE3NzA2NDUxMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "imageHint": "futuristic technology"
   },
   {
     "id": "portfolio-loan-tracking",
     "description": "Financial loan management dashboard",
-    "imageUrl": "https://picsum.photos/seed/poda-loan-v9/1200/800",
+    "imageUrl": "https://live.staticflickr.com/65535/55135400932_14163150cc_b.jpg",
     "imageHint": "finance dashboard"
   },
   {
     "id": "portfolio-fabrication-pm",
     "description": "Construction and fabrication project management",
-    "imageUrl": "https://picsum.photos/seed/poda-build-v2/1200/800",
+    "imageUrl": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb25zdHJ1Y3Rpb24lMjBtYW5hZ2VtZW50fGVufDB8fHx8MTc3MDY0NTE0NHww&ixlib=rb-4.1.0&q=80&w=1080",
     "imageHint": "construction management"
   },
   {
     "id": "portfolio-shipping-ai",
     "description": "Logistics and shipping tracking AI",
-    "imageUrl": "https://picsum.photos/seed/poda-shipping-v2/1200/800",
+    "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2dpc3RpY3N8ZW58MHx8fHwxNzcwNjQ1MTQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "imageHint": "logistics tracking"
   },
   {
     "id": "portfolio-hr-geofence",
     "description": "HR management and geofencing interface",
-    "imageUrl": "https://picsum.photos/seed/poda-hr-v2/1200/800",
+    "imageUrl": "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsdW1hbiUyMHJlc291cmNlc3xlbnwwfHx8fDE3NzA2NDUxNDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "imageHint": "human resources"
   }
 ];

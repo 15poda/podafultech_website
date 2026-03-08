@@ -37,7 +37,7 @@ export default function Home() {
                   <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">2</div>
                   No-Code & Pro-Code
                 </h3>
-                <p className="text-muted-foreground">We use the best tool for the job. From simple Make/Zapier automations to custom microservices and full-fledged web apps.</p>
+                <p className="text-muted-foreground">We use the best tool for the job. From simple Make/Zapier automations to custom Python microservices and full-fledged web apps.</p>
               </div>
               <div className="space-y-4">
                 <h3 className="text-xl font-bold flex items-center gap-2">
