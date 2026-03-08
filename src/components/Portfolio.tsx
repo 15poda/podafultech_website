@@ -51,7 +51,7 @@ export function Portfolio() {
             </p>
           </div>
           <div>
-            <Badge variant="secondary" className="px-4 py-2 text-sm">5 Projects Delivered</Badge>
+            <Badge variant="secondary" className="px-4 py-2 text-sm">{projects.length} Projects Delivered</Badge>
           </div>
         </div>
 
@@ -62,13 +62,15 @@ export function Portfolio() {
               <div key={project.id} className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all duration-500">
                 <Link href={`/portfolio/${project.id}`}>
                   <div className="aspect-[16/10] relative overflow-hidden">
-                    <Image 
-                      src={imageData?.imageUrl || ""} 
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
-                      data-ai-hint={imageData?.imageHint}
-                    />
+                    {imageData?.imageUrl && (
+                      <Image 
+                        src={imageData.imageUrl} 
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                        data-ai-hint={imageData.imageHint}
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                   </div>
                   
