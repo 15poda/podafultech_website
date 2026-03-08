@@ -20,7 +20,7 @@ export function Footer() {
               <a href="https://linkedin.com/company/podafultech" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://facebook.com/podafultech" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61572540886191" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
               <a href="https://pinterest.com/podafultech" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors">
