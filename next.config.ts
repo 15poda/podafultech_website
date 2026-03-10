@@ -3,11 +3,11 @@ import type {NextConfig} from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
   typescript: {
-    // Enabled type checking during build
+    // Ensure type checking is enforced during build
     ignoreBuildErrors: false,
   },
   eslint: {
-    // Enabled linting during build
+    // Ensure linting is enforced during build
     ignoreDuringBuilds: false,
   },
   images: {
