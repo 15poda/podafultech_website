@@ -42,7 +42,7 @@ export function ContactDialog({ children }: ContactDialogProps) {
           <Button 
             variant="outline" 
             className="h-20 text-lg font-bold flex items-center justify-start gap-4 px-6 border-white/10 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all"
-            onClick={() => window.open("https://m.me/podafultech", "_blank")}
+            onClick={() => window.open("https://m.me/537466229454348", "_blank")}
           >
             <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500">
               <MessageSquare className="h-6 w-6" />
