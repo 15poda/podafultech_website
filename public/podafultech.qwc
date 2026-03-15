@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<QUICKBOOKSLOADER>
-    <AppName>PODAfultech QB Sync</AppName>
-    <AppID></AppID>
-    <AppURL>https://podafultech.com/api/qbwc</AppURL>
-    <AppDescription>Custom automation and data synchronization for PODAfultech.</AppDescription>
-    <AppSupport>https://podafultech.com</AppSupport>
-    <UserName>poda_admin</UserName>
-    <OwnerID>{57F3B9B1-86F1-4fcc-B1EE-566DE1813D20}</OwnerID>
-    <FileID>{90A44FB5-33D9-4815-AC85-BC87A7E7D1EB}</FileID>
-    <QBType>QBFS</QBType>
-    <Scheduler>
-        <RunEveryNMinutes>60</RunEveryNMinutes>
-    </Scheduler>
-</QUICKBOOKSLOADER>
+<QBWCXML>
+   <AppName>PODAfultech QBWC Service</AppName>
+   <AppID></AppID>
+   <AppURL>https://podafultech.com/api/qbwc</AppURL>
+   <AppDescription>Automated QuickBooks Integration for PODAfultech</AppDescription>
+   <AppSupport>https://podafultech.com/support</AppSupport>
+   <UserName>poda_admin</UserName>
+   <OwnerID>{90A44FB5-33D9-4815-AC85-BC87A7E7D1EB}</OwnerID>
+   <FileID>{57F3B9B1-86F1-4fcc-B1EE-566DE1813D20}</FileID>
+   <QBType>QBFS</QBType>
+   <Scheduler>
+      <RunEveryNMinutes>60</RunEveryNMinutes>
+   </Scheduler>
+</QBWCXML>

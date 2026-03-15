@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       
       responseBody = `
         <sendRequestXMLResponse xmlns="${SOAP_NS}">
-          <sendRequestXMLResult><![CDATA[${qbXML}]]></sendRequestXMLResult>
+          <sendRequestXMLResult><![CDATA[${qbXML}]]>/sendRequestXMLResult>
         </sendRequestXMLResponse>`;
       break;
 
