@@ -2,36 +2,35 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { AlertTriangle, Clock, TrendingDown, Users, Database } from "lucide-react"
-import { ContactDialog } from "@/components/ContactDialog"
 
 const problems = [
   {
-    title: "Manual Data Entry",
-    description: "Hours spent daily copying and pasting data between systems, leading to burnout and inevitable errors.",
+    title: "Lost or inconsistent data",
+    description: "Data spread across spreadsheets, messages, and disconnected tools makes accuracy hard to maintain.",
     icon: <Database className="h-6 w-6" />,
     color: "text-red-400"
   },
   {
-    title: "Slow Response Times",
-    description: "Losing customers because inquiries sit in inboxes for hours or days instead of being handled instantly.",
+    title: "Slow reporting and decision-making",
+    description: "Critical reports take too long to compile, delaying action and reducing your ability to respond quickly.",
     icon: <Clock className="h-6 w-6" />,
     color: "text-orange-400"
   },
   {
-    title: "Inconsistent Workflows",
-    description: "Processes that change depending on who's doing them, causing chaos and unpredictable outcomes.",
+    title: "Manual errors costing you money",
+    description: "Repetitive manual tracking creates avoidable mistakes that hurt margins and customer trust.",
     icon: <AlertTriangle className="h-6 w-6" />,
     color: "text-yellow-400"
   },
   {
-    title: "High Operational Costs",
-    description: "Expensive headcount spent on low-value tasks that should be handled by code, not people.",
+    title: "Teams working out of sync",
+    description: "Departments rely on different tools and versions of the truth, causing delays and misalignment.",
     icon: <TrendingDown className="h-6 w-6" />,
     color: "text-red-500"
   },
   {
-    title: "Employee Burnout",
-    description: "Talented team members wasting their potential on repetitive, mind-numbing administrative work.",
+    title: "No clear visibility across departments",
+    description: "Without a shared operational view, leadership struggles to monitor performance end to end.",
     icon: <Users className="h-6 w-6" />,
     color: "text-purple-400"
   }
@@ -43,10 +42,10 @@ export function ProblemIdentifier() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold font-headline mb-4">
-            Is your business <span className="text-primary">stuck</span> in manual gears?
+            Is your business stuck in manual operations?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Repetitive tasks are the silent killers of business growth. We identify these bottlenecks and clear the path for scale.
+            As your business grows, spreadsheets, WhatsApp messages, and disconnected tools start breaking down.
           </p>
         </div>
 
@@ -67,13 +66,8 @@ export function ProblemIdentifier() {
           
           <Card className="bg-primary/5 border-primary/20 flex flex-col justify-center items-center text-center p-8 border-dashed">
             <CardContent className="p-0">
-              <h3 className="text-2xl font-bold text-primary mb-2">Sound Familiar?</h3>
-              <p className="text-muted-foreground mb-6">You're not alone. Let's fix it.</p>
-              <ContactDialog>
-                <button className="text-accent font-bold hover:underline inline-flex items-center gap-2">
-                  Talk to an Expert <Clock className="h-4 w-4" />
-                </button>
-              </ContactDialog>
+              <h3 className="text-2xl font-bold text-primary mb-2">These aren't small issues</h3>
+              <p className="text-muted-foreground">They're growth blockers.</p>
             </CardContent>
           </Card>
         </div>
