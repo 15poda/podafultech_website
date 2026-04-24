@@ -30,7 +30,7 @@ export function Hero() {
           <ContactDialog>
             <Button size="lg" className="h-14 px-8 text-lg font-bold gap-2">
               <MessageSquare className="h-5 w-5" />
-              Book a Free System Audit
+              Get Your Free System Audit
             </Button>
           </ContactDialog>
           <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-white/10 hover:bg-white/5 transition-all" asChild>

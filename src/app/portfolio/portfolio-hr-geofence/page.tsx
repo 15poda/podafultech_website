@@ -182,7 +182,7 @@ export default function WorkTrackCaseStudyPage() {
               <ContactDialog>
                 <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2">
                   <MessageSquare className="h-5 w-5" />
-                  Book a Free System Audit
+                  Get Your Free System Audit
                 </Button>
               </ContactDialog>
             </section>

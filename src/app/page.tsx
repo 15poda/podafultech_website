@@ -135,11 +135,11 @@ export default function Home() {
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
               <div className="border-b border-white/10 pb-5 mb-6">
-                <p className="font-bold">More Success Stories</p>
-                <p className="text-sm text-muted-foreground">Additional client feedback will appear here.</p>
+                <p className="font-bold">Emmanuel T</p>
+                <p className="text-sm text-muted-foreground">Founder, Manloc Glass And Aluminium</p>
               </div>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                "Client testimonial coming soon."
+              <p className="text-lg leading-relaxed text-foreground">
+                "Project flows are now smoother because this system makes one source of truth for all departments, cutting out errors and the need for too many reconciliation meetings that we used to have before we had this."
               </p>
             </div>
 
@@ -171,7 +171,7 @@ export default function Home() {
             <ContactDialog>
               <Button size="lg" variant="secondary" className="h-16 px-10 text-xl font-bold gap-3 shadow-xl hover:scale-105 transition-transform">
                 <MessageSquare className="h-6 w-6" />
-                Book a Free System Audit
+                Get Your Free System Audit
               </Button>
             </ContactDialog>
           </div>

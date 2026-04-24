@@ -66,8 +66,7 @@ export function ProblemIdentifier() {
           
           <Card className="bg-primary/5 border-primary/20 flex flex-col justify-center items-center text-center p-8 border-dashed">
             <CardContent className="p-0">
-              <h3 className="text-2xl font-bold text-primary mb-2">These aren't small issues</h3>
-              <p className="text-muted-foreground">They're growth blockers.</p>
+              <p className="text-2xl font-bold text-primary">These issues don't fix themselves-they get worse as you grow.</p>
             </CardContent>
           </Card>
         </div>
