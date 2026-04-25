@@ -10,7 +10,6 @@ import { Footer } from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, MessageSquare } from 'lucide-react'
 import Link from 'next/link'
-import { ContactDialog } from '@/components/ContactDialog'
 
 export default function ShipSenseCaseStudyPage() {
   return (
@@ -160,12 +159,12 @@ export default function ShipSenseCaseStudyPage() {
               <p className="text-primary-foreground/90 text-lg mb-8 max-w-2xl mx-auto">
                 If repetitive customer inquiries are draining your team, let us build an automated system that scales with your business.
               </p>
-              <ContactDialog>
-                <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2">
+              <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2" asChild>
+                <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
                   <MessageSquare className="h-5 w-5" />
                   Get Your Free System Audit
-                </Button>
-              </ContactDialog>
+                </a>
+              </Button>
             </section>
           </div>
         </div>

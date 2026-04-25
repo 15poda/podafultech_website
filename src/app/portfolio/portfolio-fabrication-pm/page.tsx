@@ -10,7 +10,6 @@ import { Footer } from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, MessageSquare } from 'lucide-react'
 import Link from 'next/link'
-import { ContactDialog } from '@/components/ContactDialog'
 
 export default function NexusBuildCaseStudyPage() {
   return (
@@ -170,12 +169,12 @@ export default function NexusBuildCaseStudyPage() {
               <p className="text-primary-foreground/90 text-lg mb-8 max-w-2xl mx-auto">
                 If disconnected tools are slowing down your teams, we can build a unified system tailored to how your business actually runs.
               </p>
-              <ContactDialog>
-                <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2">
+              <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2" asChild>
+                <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
                   <MessageSquare className="h-5 w-5" />
                   Get Your Free System Audit
-                </Button>
-              </ContactDialog>
+                </a>
+              </Button>
             </section>
           </div>
         </div>

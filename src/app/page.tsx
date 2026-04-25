@@ -7,7 +7,6 @@ import { Portfolio } from "@/components/Portfolio"
 import { Footer } from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import { MessageSquare } from "lucide-react"
-import { ContactDialog } from "@/components/ContactDialog"
 
 export default function Home() {
   return (
@@ -168,12 +167,12 @@ export default function Home() {
             If your business is growing but your tools are holding you back, it's time to build something that actually fits.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <ContactDialog>
-              <Button size="lg" variant="secondary" className="h-16 px-10 text-xl font-bold gap-3 shadow-xl hover:scale-105 transition-transform">
+            <Button size="lg" variant="secondary" className="h-16 px-10 text-xl font-bold gap-3 shadow-xl hover:scale-105 transition-transform" asChild>
+              <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="h-6 w-6" />
                 Get Your Free System Audit
-              </Button>
-            </ContactDialog>
+              </a>
+            </Button>
           </div>
           <p className="mt-8 text-primary-foreground/70 text-sm">
             We'll review your current setup and show you exactly where a custom system can improve your operations.

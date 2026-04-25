@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button"
 import { MessageSquare, ArrowRight, Zap, Shield, Sparkles } from "lucide-react"
-import { ContactDialog } from "@/components/ContactDialog"
 
 export function Hero() {
   return (
@@ -27,12 +26,12 @@ export function Hero() {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in [animation-delay:600ms]">
-          <ContactDialog>
-            <Button size="lg" className="h-14 px-8 text-lg font-bold gap-2">
+          <Button size="lg" className="h-14 px-8 text-lg font-bold gap-2" asChild>
+            <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
               <MessageSquare className="h-5 w-5" />
               Get Your Free System Audit
-            </Button>
-          </ContactDialog>
+            </a>
+          </Button>
           <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-white/10 hover:bg-white/5 transition-all" asChild>
             <a href="#portfolio">
               View Case Studies
