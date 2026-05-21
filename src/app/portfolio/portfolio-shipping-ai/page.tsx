@@ -160,7 +160,7 @@ export default function ShipSenseCaseStudyPage() {
                 If repetitive customer inquiries are draining your team, let us build an automated system that scales with your business.
               </p>
               <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2" asChild>
-                <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
+                <a href="/free-operations-audit">
                   <MessageSquare className="h-5 w-5" />
                   Get Your Free System Audit
                 </a>

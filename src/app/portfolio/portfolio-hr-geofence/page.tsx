@@ -179,7 +179,7 @@ export default function WorkTrackCaseStudyPage() {
                 We can build a location-aware workforce system tailored to your operations so your team stays accountable at scale.
               </p>
               <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2" asChild>
-                <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
+                <a href="/free-operations-audit">
                   <MessageSquare className="h-5 w-5" />
                   Get Your Free System Audit
                 </a>

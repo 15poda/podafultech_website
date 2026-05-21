@@ -170,7 +170,7 @@ export default function NexusBuildCaseStudyPage() {
                 If disconnected tools are slowing down your teams, we can build a unified system tailored to how your business actually runs.
               </p>
               <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold gap-2" asChild>
-                <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
+                <a href="/free-operations-audit">
                   <MessageSquare className="h-5 w-5" />
                   Get Your Free System Audit
                 </a>

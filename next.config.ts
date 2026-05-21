@@ -38,6 +38,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // No specific changes needed for the route as Next.js automatically handles new pages in the `pages` directory.
 };
 
 export default nextConfig;

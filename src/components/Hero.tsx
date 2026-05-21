@@ -27,7 +27,7 @@ export function Hero() {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in [animation-delay:600ms]">
           <Button size="lg" className="h-14 px-8 text-lg font-bold gap-2" asChild>
-            <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
+            <a href="/free-operations-audit">
               <MessageSquare className="h-5 w-5" />
               Get Your Free System Audit
             </a>

@@ -121,7 +121,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8">
               <div className="border-b border-white/10 pb-5 mb-6">
                 <p className="font-bold">Ruth M</p>
@@ -142,15 +142,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-              <div className="border-b border-white/10 pb-5 mb-6">
-                <p className="font-bold">More Success Stories</p>
-                <p className="text-sm text-muted-foreground">Additional client feedback will appear here.</p>
-              </div>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                "Client testimonial coming soon."
-              </p>
-            </div>
+
           </div>
         </div>
       </section>
@@ -168,7 +160,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Button size="lg" variant="secondary" className="h-16 px-10 text-xl font-bold gap-3 shadow-xl hover:scale-105 transition-transform" asChild>
-              <a href="https://calendly.com/podasecondarybiz/free-system-audit" target="_blank" rel="noopener noreferrer">
+              <a href="/free-operations-audit">
                 <MessageSquare className="h-6 w-6" />
                 Get Your Free System Audit
               </a>
