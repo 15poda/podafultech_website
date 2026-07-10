@@ -189,12 +189,61 @@ export default function InventoryAssessmentPage() {
   const isComplete = step >= steps.length;
 
   const results = useMemo(() => calculateAssessmentResults(answers), [answers]);
+  const [savedId, setSavedId] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+  const [sendingEmail, setSendingEmail] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [contact, setContact] = useState({ firstName: "", email: "", company: "" });
 
   useEffect(() => {
     if (formContentRef.current) {
       formContentRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [step]);
+
+  // Persist completed assessment once when results are reached
+  useEffect(() => {
+    const save = async () => {
+      try {
+        setSaving(true);
+        const payload = {
+          answers,
+          results,
+          industry: answers.industry || null,
+          employeeCount: answers.employees || null,
+          skuCount: answers.skuCount || null,
+          inventoryMethod: answers.currentTracking || null,
+          growthAnswers: {
+            planningGrowth: answers.planningGrowth || null,
+            openingWarehouse: answers.openingWarehouse || null,
+            planningEcommerce: answers.planningEcommerce || null,
+          },
+          weakestCategory: results.biggestWeakArea,
+        };
+
+        const res = await fetch("/api/inventory-assessments", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const body = await res.json();
+        if (res.ok) {
+          setSavedId(body.id);
+        } else {
+          console.error("Failed saving assessment", body);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setSaving(false);
+      }
+    };
+
+    if (isComplete && !savedId && !saving) {
+      save();
+    }
+  }, [isComplete, savedId, answers, results, saving]);
 
   const updateAnswer = (key: keyof AssessmentAnswers, value: AssessmentAnswers[keyof AssessmentAnswers]) => {
     setAnswers((current) => ({ ...current, [key]: value }));
@@ -389,49 +438,124 @@ export default function InventoryAssessmentPage() {
             </div>
           ) : (
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8 lg:p-10">
-              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
                 <div className="space-y-6">
                   <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                     <Sparkles className="h-4 w-4" />
                     Diagnostic complete
                   </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Inventory Operations Score</p>
-                    <div className="mt-4 flex items-center gap-6">
-                      <div className="relative flex h-32 w-32 items-center justify-center rounded-full border-[14px] border-primary/20 bg-gradient-to-br from-primary/20 to-secondary/10">
-                        <div className="absolute inset-0 rounded-full border-[14px] border-primary border-t-transparent" style={{ transform: `rotate(${results.overallScore * 3.6}deg)` }} />
-                        <div className="text-center">
-                          <p className="text-4xl font-semibold text-foreground">{results.overallScore}</p>
-                          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">/100</p>
-                        </div>
+
+                  <div className="mt-4 flex items-center gap-6">
+                    <div className="relative flex h-32 w-32 items-center justify-center rounded-full border-[14px] border-primary/20 bg-gradient-to-br from-primary/20 to-secondary/10">
+                      <div className="absolute inset-0 rounded-full border-[14px] border-primary border-t-transparent" style={{ transform: `rotate(${results.overallScore * 3.6}deg)` }} />
+                      <div className="text-center">
+                        <p className="text-4xl font-semibold text-foreground">{results.overallScore}</p>
+                        <p className="text-xs text-muted-foreground">/100</p>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-semibold">Biggest weak area</h3>
-                        <p className="mt-2 text-lg text-primary">{results.biggestWeakArea}</p>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">Biggest weak area</h3>
+                      <p className="mt-2 text-lg text-primary">{results.biggestWeakArea}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <p className="text-sm text-muted-foreground">Unlock Your Complete Report</p>
+                    <div className="mt-4 rounded-2xl border border-white/10 bg-background/60 p-4">
+                      <p className="text-sm">To view the full report, provide your details and we'll email the complete assessment to you.</p>
+                      <div className="mt-4 grid gap-3">
+                        <input
+                          value={contact.firstName}
+                          onChange={(e) => setContact((s) => ({ ...s, firstName: e.target.value }))}
+                          placeholder="First name"
+                          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                        />
+                        <input
+                          value={contact.email}
+                          onChange={(e) => setContact((s) => ({ ...s, email: e.target.value }))}
+                          placeholder="Email address"
+                          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                        />
+                        <input
+                          value={contact.company}
+                          onChange={(e) => setContact((s) => ({ ...s, company: e.target.value }))}
+                          placeholder="Company (optional)"
+                          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                        />
+                        <div className="flex items-center justify-between gap-3">
+                          <Button
+                            onClick={async () => {
+                              setEmailError(null);
+                              if (!savedId) {
+                                setEmailError("Assessment not saved yet - please try again shortly.");
+                                return;
+                              }
+                              setSendingEmail(true);
+                              try {
+                                const res = await fetch("/api/inventory-assessments/send", {
+                                  method: "POST",
+                                  headers: { "Content-Type": "application/json" },
+                                  body: JSON.stringify({
+                                    id: savedId,
+                                    firstName: contact.firstName,
+                                    email: contact.email,
+                                    company: contact.company,
+                                    answers,
+                                    results,
+                                  }),
+                                });
+                                const body = await res.json();
+                                if (!res.ok) {
+                                  setEmailError(body.error || "Failed to send email");
+                                } else {
+                                  setUnlocked(true);
+                                }
+                              } catch (err: any) {
+                                setEmailError(err.message || String(err));
+                              } finally {
+                                setSendingEmail(false);
+                              }
+                            }}
+                            disabled={sendingEmail}
+                          >
+                            {sendingEmail ? "Sending..." : "Email My Report"}
+                          </Button>
+                          <div className="text-sm text-muted-foreground">We won't share your info.</div>
+                        </div>
+                        {emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-5 rounded-3xl border border-white/10 bg-background/60 p-5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold">Overall score</span>
-                    <span className="font-semibold text-primary">{results.overallScore}/100</span>
-                  </div>
-                  {Object.entries(results.categoryScores).map(([label, score]) => (
-                    <div key={label} className="space-y-2">
-                      <div className="flex items-center justify-between text-sm">
-                        <span>{label}</span>
-                        <span className="text-muted-foreground">{score}/100</span>
-                      </div>
-                      <Progress value={score} className="h-2" />
+                <div className="space-y-5 rounded-3xl border border-white/10 bg-background/60 p-5 relative">
+                  {/* Blurred detailed report when locked */}
+                  <div className={`${unlocked ? "opacity-100 blur-0" : "opacity-60 blur-sm pointer-events-none"}`}>
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold">Overall score</span>
+                      <span className="font-semibold text-primary">{results.overallScore}/100</span>
                     </div>
-                  ))}
+                    {Object.entries(results.categoryScores).map(([label, score]) => (
+                      <div key={label} className="space-y-2">
+                        <div className="flex items-center justify-between text-sm">
+                          <span>{label}</span>
+                          <span className="text-muted-foreground">{score}/100</span>
+                        </div>
+                        <Progress value={score} className="h-2" />
+                      </div>
+                    ))}
+                  </div>
+
+                  {!unlocked && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="rounded-xl bg-black/40 p-4 text-center text-sm text-muted-foreground">Unlock the full report to see category breakdowns and recommendations.</div>
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button variant="outline" onClick={() => { setStep(0); setAnswers(defaultAnswers); }}>
+                <Button variant="outline" onClick={() => { setStep(0); setAnswers(defaultAnswers); setUnlocked(false); }}>
                   Restart assessment
                 </Button>
                 <Button asChild>
