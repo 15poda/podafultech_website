@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { updateAssessment } from "@/lib/services/firestore.server";
 import { sendEmailViaResend } from "@/lib/services/resend.server";
+import { generateRecommendations } from "@/lib/recommendations/recommendationService";
 
 export async function POST(req: Request) {
   try {
@@ -9,6 +10,12 @@ export async function POST(req: Request) {
     if (!id || !email) {
       return NextResponse.json({ error: "Missing id or email" }, { status: 400 });
     }
+
+    const recommendations = generateRecommendations({
+      overallScore: results.overallScore,
+      categoryScores: results.categoryScores,
+      answers,
+    });
 
     const from = process.env.RESEND_FROM || "no-reply@example.com";
 
@@ -33,10 +40,23 @@ export async function POST(req: Request) {
         <ol>${topWeaknesses}</ol>
         <h4>Category scores</h4>
         <table style=\"border-collapse:collapse;\">${categoryRows}</table>
-        <h4>Submitted answers</h4>
-        <pre style=\"white-space:pre-wrap;background:#f7f7f7;padding:8px;border-radius:6px\">${JSON.stringify(answers,null,2)}</pre>
-        <p>Company: ${company || "n/a"}</p>
-        <p style=\"font-size:12px;color:#666\">This is an automated message from your assessment tool.</p>
+        <h4>Recommended next actions</h4>
+        <ul style="padding-left:18px;">
+          ${recommendations.actionPlan.map((item) => `<li style="margin-bottom:8px;">${item}</li>`).join("")}
+        </ul>
+        ${recommendations.softwareRecommendation ? `
+          <h4>Software fit</h4>
+          <p><strong>${recommendations.softwareRecommendation.name}</strong> — ${recommendations.softwareRecommendation.reason}</p>
+          <p style="font-size:13px;color:#555">Ideal for ${recommendations.softwareRecommendation.idealFor}</p>
+          <p><a href="${recommendations.softwareRecommendation.website}" style="color:#0b5fff;">${recommendations.softwareRecommendation.buttonLabel}</a></p>
+        ` : ""}
+        ${recommendations.consultationRecommendation ? `
+          <h4>Consultation recommendation</h4>
+          <p><strong>${recommendations.consultationRecommendation.title}</strong></p>
+          <p>${recommendations.consultationRecommendation.description.replace(/\n/g, "<br />")}</p>
+          <p><a href="${recommendations.consultationRecommendation.ctaUrl}" style="color:#0b5fff;">${recommendations.consultationRecommendation.cta}</a></p>
+        ` : ""}
+
       </div>
     `;
 

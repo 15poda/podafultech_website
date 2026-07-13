@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { calculateAssessmentResults, type AssessmentAnswers } from "./scoring";
+import { generateRecommendations } from "@/lib/recommendations/recommendationService";
 
 const steps = [
   { id: 1, title: "Business Profile", description: "Understand the operating context" },
@@ -189,6 +190,15 @@ export default function InventoryAssessmentPage() {
   const isComplete = step >= steps.length;
 
   const results = useMemo(() => calculateAssessmentResults(answers), [answers]);
+  const recommendations = useMemo(
+    () =>
+      generateRecommendations({
+        overallScore: results.overallScore,
+        categoryScores: results.categoryScores,
+        answers,
+      }),
+    [answers, results]
+  );
   const [savedId, setSavedId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
@@ -210,6 +220,7 @@ export default function InventoryAssessmentPage() {
         const payload = {
           answers,
           results,
+          recommendations,
           industry: answers.industry || null,
           employeeCount: answers.employees || null,
           skuCount: answers.skuCount || null,
@@ -220,6 +231,10 @@ export default function InventoryAssessmentPage() {
             planningEcommerce: answers.planningEcommerce || null,
           },
           weakestCategory: results.biggestWeakArea,
+          recommendedSoftware: recommendations.softwareRecommendation?.name ?? null,
+          businessMaturity: recommendations.maturityTitle ?? null,
+          urgency: recommendations.urgency ?? null,
+          consultationRecommended: Boolean(recommendations.consultationRecommendation),
         };
 
         const res = await fetch("/api/inventory-assessments", {
@@ -544,6 +559,68 @@ export default function InventoryAssessmentPage() {
                         <Progress value={score} className="h-2" />
                       </div>
                     ))}
+
+                    {unlocked ? (
+                      <div className="mt-6 rounded-3xl border border-white/10 bg-background/80 p-5">
+                        <div className="space-y-5">
+                          <div>
+                            <div className="flex items-center justify-between gap-4">
+                              <div>
+                                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Maturity</p>
+                                <h3 className="mt-2 text-lg font-semibold">{recommendations.maturityTitle}</h3>
+                              </div>
+                              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{recommendations.urgency} urgency</span>
+                            </div>
+                            <p className="mt-3 text-sm leading-6 text-muted-foreground">{recommendations.maturityDescription}</p>
+                          </div>
+
+                          <div>
+                            <p className="text-sm font-semibold text-foreground">Recommended next actions</p>
+                            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                              {recommendations.actionPlan.map((item) => (
+                                <li key={item} className="flex items-start gap-2">
+                                  <span className="mt-1 block h-2 w-2 rounded-full bg-primary" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {recommendations.softwareRecommendation ? (
+                            <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
+                              <p className="text-sm font-semibold text-foreground">Software fit</p>
+                              <h4 className="mt-2 text-base font-semibold">{recommendations.softwareRecommendation.name}</h4>
+                              <p className="mt-2 text-sm text-muted-foreground">{recommendations.softwareRecommendation.reason}</p>
+                              <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">Ideal for {recommendations.softwareRecommendation.idealFor}</p>
+                              <a
+                                href={recommendations.softwareRecommendation.website}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="mt-4 inline-flex rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+                              >
+                                {recommendations.softwareRecommendation.buttonLabel}
+                              </a>
+                            </div>
+                          ) : null}
+
+                          {recommendations.consultationRecommendation ? (
+                            <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
+                              <p className="text-sm font-semibold text-foreground">Consultation recommendation</p>
+                              <h4 className="mt-2 text-base font-semibold">{recommendations.consultationRecommendation.title}</h4>
+                              <p className="mt-2 text-sm text-muted-foreground whitespace-pre-line">{recommendations.consultationRecommendation.description}</p>
+                              <a
+                                href={recommendations.consultationRecommendation.ctaUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="mt-4 inline-flex rounded-full border border-white/10 bg-background px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-white/5"
+                              >
+                                {recommendations.consultationRecommendation.cta}
+                              </a>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
 
                   {!unlocked && (
