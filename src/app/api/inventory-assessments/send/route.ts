@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { updateAssessment } from "@/lib/services/firestore.server";
+import { updateAssessment, getAssessment } from "@/lib/services/firestore.server";
 import { sendEmailViaResend } from "@/lib/services/resend.server";
 import { generateRecommendations } from "@/lib/recommendations/recommendationService";
+import { syncContactToSysteme } from "@/lib/services/marketing";
 
 export async function POST(req: Request) {
   try {
@@ -11,10 +12,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing id or email" }, { status: 400 });
     }
 
+    const assessmentDoc = await getAssessment(id);
+    if (!assessmentDoc) {
+      return NextResponse.json({ error: "Assessment not found" }, { status: 404 });
+    }
+
     const recommendations = generateRecommendations({
-      overallScore: results.overallScore,
-      categoryScores: results.categoryScores,
-      answers,
+      overallScore: assessmentDoc.results?.overallScore ?? results?.overallScore,
+      categoryScores: assessmentDoc.results?.categoryScores ?? results?.categoryScores,
+      answers: assessmentDoc.answers ?? answers,
     });
 
     const from = process.env.RESEND_FROM || "no-reply@example.com";
@@ -79,6 +85,21 @@ export async function POST(req: Request) {
       emailStatus: "sent",
       sentAt: new Date().toISOString(),
     });
+
+    const marketingResult = await syncContactToSysteme(assessmentDoc);
+    if (!marketingResult.ok) {
+      await updateAssessment(id, {
+        marketingSyncStatus: "failed",
+        marketingSyncError: marketingResult.error || "Unknown Systeme.io error",
+        updatedAt: new Date().toISOString(),
+      });
+    } else {
+      await updateAssessment(id, {
+        marketingSyncStatus: marketingResult.skipped ? "skipped" : "synced",
+        marketingSyncError: null,
+        updatedAt: new Date().toISOString(),
+      });
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {

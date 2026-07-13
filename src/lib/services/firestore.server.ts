@@ -18,13 +18,17 @@ function initFirestore() {
   // private key may contain escaped newlines
   privateKey = privateKey.replace(/\\n/g, "\n");
 
-  app = admin.initializeApp({
-    credential: admin.credential.cert({
-      projectId,
-      clientEmail,
-      privateKey,
-    } as any),
-  });
+  try {
+    app = admin.app();
+  } catch {
+    app = admin.initializeApp({
+      credential: admin.credential.cert({
+        projectId,
+        clientEmail,
+        privateKey,
+      } as any),
+    });
+  }
 
   return admin.firestore();
 }
@@ -37,6 +41,13 @@ export async function saveAssessment(data: any) {
     timestamp: admin.firestore.FieldValue.serverTimestamp(),
   });
   return docRef.id;
+}
+
+export async function getAssessment(id: string) {
+  const db = initFirestore();
+  const doc = await db.collection("inventoryAssessments").doc(id).get();
+  if (!doc.exists) return null;
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function updateAssessment(id: string, data: any) {

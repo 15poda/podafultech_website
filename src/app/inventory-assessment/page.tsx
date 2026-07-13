@@ -221,6 +221,8 @@ export default function InventoryAssessmentPage() {
           answers,
           results,
           recommendations,
+          overallScore: results.overallScore,
+          categoryScores: results.categoryScores,
           industry: answers.industry || null,
           employeeCount: answers.employees || null,
           skuCount: answers.skuCount || null,
@@ -235,6 +237,14 @@ export default function InventoryAssessmentPage() {
           businessMaturity: recommendations.maturityTitle ?? null,
           urgency: recommendations.urgency ?? null,
           consultationRecommended: Boolean(recommendations.consultationRecommendation),
+          contact: {
+            firstName: contact.firstName,
+            email: contact.email,
+            company: contact.company,
+          },
+          emailStatus: "pending",
+          marketingSyncStatus: "pending",
+          createdAt: new Date().toISOString(),
         };
 
         const res = await fetch("/api/inventory-assessments", {
