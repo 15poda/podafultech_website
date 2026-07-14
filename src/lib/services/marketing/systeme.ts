@@ -1,6 +1,14 @@
 import { systemeConfig } from "@/config/systeme";
 import { mapAssessmentToSystemeContact } from "./systemeMapper";
 
+export interface SystemeContactPayload {
+  email?: string;
+  fields: Array<{
+    slug: string;
+    value?: string;
+  }>;
+}
+
 // Configure the placeholder field IDs in the environment before enabling sync.
 // The assessment flow will continue to work even if the API key or field mappings are not yet set.
 

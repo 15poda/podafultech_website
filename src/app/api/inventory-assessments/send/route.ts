@@ -17,22 +17,23 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Assessment not found" }, { status: 404 });
     }
 
+    const assessmentResults = assessmentDoc.results ?? results;
     const recommendations = generateRecommendations({
-      overallScore: assessmentDoc.results?.overallScore ?? results?.overallScore,
-      categoryScores: assessmentDoc.results?.categoryScores ?? results?.categoryScores,
+      overallScore: assessmentResults?.overallScore ?? results?.overallScore,
+      categoryScores: assessmentResults?.categoryScores ?? results?.categoryScores,
       answers: assessmentDoc.answers ?? answers,
     });
 
     const from = process.env.RESEND_FROM || "no-reply@example.com";
 
     // Compose a simple HTML report
-    const topWeaknesses = Object.entries(results.categoryScores)
+    const topWeaknesses = Object.entries(assessmentResults?.categoryScores ?? {})
       .sort((a: any, b: any) => a[1] - b[1])
       .slice(0, 3)
       .map(([k, v]) => `<li><strong>${k}:</strong> ${v}/100</li>`)
       .join("");
 
-    const categoryRows = Object.entries(results.categoryScores)
+    const categoryRows = Object.entries(assessmentResults?.categoryScores ?? {})
       .map(([k, v]) => `<tr><td style=\"padding:6px 8px;border:1px solid #ddd\">${k}</td><td style=\"padding:6px 8px;border:1px solid #ddd\">${v}/100</td></tr>`)
       .join("");
 
@@ -41,7 +42,7 @@ export async function POST(req: Request) {
         <h2>Inventory Operations Report</h2>
         <p>Hi ${firstName || "there"},</p>
         <p>Here is your inventory assessment report.</p>
-        <h3>Overall score: ${results.overallScore}/100</h3>
+        <h3>Overall score: ${assessmentResults?.overallScore ?? 0}/100</h3>
         <h4>Top weaknesses</h4>
         <ol>${topWeaknesses}</ol>
         <h4>Category scores</h4>
@@ -86,7 +87,8 @@ export async function POST(req: Request) {
       sentAt: new Date().toISOString(),
     });
 
-    const marketingResult = await syncContactToSysteme(assessmentDoc);
+    const syncedAssessmentDoc = await getAssessment(id);
+    const marketingResult = await syncContactToSysteme(syncedAssessmentDoc ?? { ...assessmentDoc, contact: { firstName, email, company } });
     if (!marketingResult.ok) {
       await updateAssessment(id, {
         marketingSyncStatus: "failed",

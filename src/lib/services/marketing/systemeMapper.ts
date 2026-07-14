@@ -15,31 +15,23 @@ export function mapAssessmentToSystemeContact(assessment: Record<string, any>) {
   const overallScore = assessment.overallScore ?? results.overallScore ?? null;
   const weakestCategory = assessment.weakestCategory ?? results.biggestWeakArea ?? null;
 
-  const customFields = Object.fromEntries(
-    Object.entries({
-      [systemeConfig.customFieldIds.inventoryScore]: normalizeValue(overallScore),
-      [systemeConfig.customFieldIds.inventoryAccuracy]: normalizeValue(categoryScores.inventoryAccuracy),
-      [systemeConfig.customFieldIds.operationalEfficiency]: normalizeValue(categoryScores.operationalEfficiency),
-      [systemeConfig.customFieldIds.growthComplexity]: normalizeValue(categoryScores.growthComplexity),
-      [systemeConfig.customFieldIds.automation]: normalizeValue(categoryScores.automation),
-      [systemeConfig.customFieldIds.businessMaturity]: normalizeValue(recommendations.maturityTitle ?? assessment.businessMaturity),
-      [systemeConfig.customFieldIds.urgency]: normalizeValue(recommendations.urgency ?? assessment.urgency),
-      [systemeConfig.customFieldIds.currentInventoryMethod]: normalizeValue(answers.currentTracking ?? assessment.inventoryMethod),
-      [systemeConfig.customFieldIds.industry]: normalizeValue(answers.industry ?? assessment.industry),
-      [systemeConfig.customFieldIds.employees]: normalizeValue(answers.employees ?? assessment.employees),
-      [systemeConfig.customFieldIds.weakestCategory]: normalizeValue(weakestCategory),
-      [systemeConfig.customFieldIds.recommendedSoftware]: normalizeValue(recommendations.softwareRecommendation?.name ?? assessment.recommendedSoftware),
-      [systemeConfig.customFieldIds.consultationRecommended]: normalizeValue(
-        recommendations.consultationRecommendation ? true : assessment.consultationRecommended
-      ),
-    }).filter(([, value]) => value !== undefined)
-  );
+  const fields = [
+    { slug: systemeConfig.fieldSlugs.inventoryScore, value: normalizeValue(overallScore) },
+    { slug: systemeConfig.fieldSlugs.inventoryAccuracy, value: normalizeValue(categoryScores.inventoryAccuracy) },
+    { slug: systemeConfig.fieldSlugs.operationalEfficiency, value: normalizeValue(categoryScores.operationalEfficiency) },
+    { slug: systemeConfig.fieldSlugs.growthComplexity, value: normalizeValue(categoryScores.growthComplexity) },
+    { slug: systemeConfig.fieldSlugs.automation, value: normalizeValue(categoryScores.automation) },
+    { slug: systemeConfig.fieldSlugs.currentInventoryMethod, value: normalizeValue(answers.currentTracking ?? assessment.inventoryMethod) },
+    { slug: systemeConfig.fieldSlugs.industry, value: normalizeValue(answers.industry ?? assessment.industry) },
+    { slug: systemeConfig.fieldSlugs.employees, value: normalizeValue(answers.employees ?? assessment.employees) },
+    { slug: systemeConfig.fieldSlugs.weakestCategory, value: normalizeValue(weakestCategory) },
+    { slug: systemeConfig.fieldSlugs.recommendedSoftware, value: normalizeValue(recommendations.softwareRecommendation?.name ?? assessment.recommendedSoftware) },
+  ].filter((field) => Boolean(field.slug) && field.value !== undefined);
+
+  const email = normalizeValue(contact.email ?? assessment.email ?? assessment.contact?.email);
 
   return {
-    email: normalizeValue(contact.email ?? assessment.email) || undefined,
-    firstName: normalizeValue(contact.firstName ?? assessment.firstName) || undefined,
-    company: normalizeValue(contact.company ?? assessment.company) || undefined,
-    tags: systemeConfig.tagId ? [systemeConfig.tagId] : undefined,
-    customFields: Object.keys(customFields).length > 0 ? customFields : undefined,
+    email,
+    fields,
   };
 }
