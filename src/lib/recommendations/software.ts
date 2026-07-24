@@ -5,7 +5,7 @@ const softwareRules = [
     name: "Cin7",
     reason: "Better suited for larger inventory operations and multi-channel businesses.",
     idealFor: "Larger teams and multi-channel operations",
-    website: "https://example.com/cin7",
+    website: "https://www.cin7.com/",
     buttonLabel: "Explore Cin7",
     match: (input: RecommendationInput) => {
       const employeeCount = parseEmployeeCount(input.answers.employees as string | undefined);
@@ -17,7 +17,7 @@ const softwareRules = [
     name: "Katana",
     reason: "Built specifically for manufacturing businesses needing production planning, inventory management and Bills of Materials.",
     idealFor: "Manufacturers, Producers, Workshops",
-    website: "https://example.com/katana",
+    website: "https://katanamrp.com/",
     buttonLabel: "Explore Katana",
     match: (input: RecommendationInput) => {
       return (input.answers.industry === "Manufacturing") ||
@@ -28,7 +28,7 @@ const softwareRules = [
     name: "inFlow Inventory",
     reason: "Strong inventory control for distributors and wholesalers.",
     idealFor: "Wholesale, Distribution",
-    website: "https://example.com/inflow",
+    website: "https://www.inflowinventory.com/",
     buttonLabel: "Explore inFlow",
     match: (input: RecommendationInput) => input.answers.industry === "Wholesale",
   },
@@ -36,7 +36,7 @@ const softwareRules = [
     name: "Zoho Inventory",
     reason: "Well suited for growing retailers managing products across sales channels.",
     idealFor: "Retail stores",
-    website: "https://example.com/zoho-inventory",
+    website: "https://www.zoho.com/inventory/",
     buttonLabel: "Explore Zoho Inventory",
     match: (input: RecommendationInput) => input.answers.industry === "Retail",
   },

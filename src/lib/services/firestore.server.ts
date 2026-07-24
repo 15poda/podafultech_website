@@ -14,31 +14,15 @@ export interface InventoryAssessmentDocument {
 let app: admin.app.App | undefined;
 
 function initFirestore() {
-  if (app) return admin.firestore();
-
-  const projectId = process.env.FIREBASE_PROJECT_ID;
-  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-  let privateKey = process.env.FIREBASE_PRIVATE_KEY;
-
-  if (!projectId || !clientEmail || !privateKey) {
-    throw new Error(
-      "Missing Firebase service account environment variables. Set FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, and FIREBASE_PRIVATE_KEY."
-    );
+  if (app) {
+    return admin.firestore();
   }
-
-  // private key may contain escaped newlines
-  privateKey = privateKey.replace(/\\n/g, "\n");
 
   try {
     app = admin.app();
   } catch {
-    app = admin.initializeApp({
-      credential: admin.credential.cert({
-        projectId,
-        clientEmail,
-        privateKey,
-      } as any),
-    });
+    // App Hosting automatically provides credentials
+    app = admin.initializeApp();
   }
 
   return admin.firestore();
