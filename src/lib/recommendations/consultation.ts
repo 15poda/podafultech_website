@@ -27,6 +27,6 @@ export function determineConsultationRecommendation(input: RecommendationInput):
     description:
       "Software solves many inventory challenges. Growing businesses often need:\n• ERP integrations\n• Warehouse dashboards\n• Barcode systems\n• Supplier portals\n• Purchasing automation\n• Custom workflows",
     cta: "Book an Operations Systems Review",
-    ctaUrl: "https://example.com/book-review",
+    ctaUrl: "https://calendly.com/podasecondarybiz/book-an-operations-review",
   };
 }
