@@ -2,6 +2,13 @@ const BASE_URL = 'https://podafultech.com';
 
 const PUBLIC_PATHS = [
   '/',
+  '/about',
+  '/contact',
+  '/privacy-policy',
+  '/terms-of-service',
+  '/cookie-policy',
+  '/affiliate-disclosure',
+  '/disclaimer',
   '/free-operations-audit',
   '/inventory-assessment',
   '/portfolio/portfolio-loan-tracking',

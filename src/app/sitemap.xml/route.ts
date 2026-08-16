@@ -16,7 +16,7 @@ export async function GET() {
     <loc>${xmlEscape(`${BASE_URL}/main-sitemap.xml`)}</loc>
   </sitemap>
   <sitemap>
-    <loc>${xmlEscape(`${BASE_URL}/blog/sitemap-0.xml`)}</loc>
+    <loc>${xmlEscape(`${BASE_URL}/blog/sitemap-index.xml`)}</loc>
   </sitemap>
 </sitemapindex>`;
 
