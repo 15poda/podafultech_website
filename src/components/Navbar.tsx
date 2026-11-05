@@ -18,12 +18,12 @@ export function Navbar() {
           
           <div className="hidden md:flex items-center gap-8">
             <Link
-              href="https://podafultech.com/inventory-assessment"
+              href="https://podafultech.com/blog"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
-              Inventory Assessment
+                            Blog
             </Link>
             <Link href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">Portfolio</Link>
           </div>
