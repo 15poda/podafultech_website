@@ -54,7 +54,7 @@ export default function ContactPage() {
             If you are interested in a system audit, a software recommendation, or a custom solution, you can reach out by email and we will respond as appropriate.
           </p>
           <div className="mt-4">
-            <Link href="/free-operations-audit" className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+            <Link href="mailto:emmanuel@podafultech.com" className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
               Request a free system audit
             </Link>
           </div>

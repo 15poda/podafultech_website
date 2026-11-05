@@ -75,7 +75,7 @@ export default function AboutPage() {
             <Link href="/contact" className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
               Contact Podaful Technologies
             </Link>
-            <Link href="/free-operations-audit" className="inline-flex items-center justify-center rounded-md border border-white/10 px-5 py-3 font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+            <Link href="mailto:emmanuel@podafultech.com" className="inline-flex items-center justify-center rounded-md border border-white/10 px-5 py-3 font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
               Request a system audit
             </Link>
           </div>

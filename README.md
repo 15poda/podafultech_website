@@ -1,5 +1,7 @@
-# Firebase Studio
+# PODAfultech website
 
-This is a NextJS starter in Firebase Studio.
+Static Next.js site (`output: 'export'`) hosted on Cloudflare Pages.
 
-To get started, take a look at src/app/page.tsx.
+- Build command: `npm run build` (outputs to `out/`)
+- Build output directory: `out`
+- Preview locally: `npm run start`

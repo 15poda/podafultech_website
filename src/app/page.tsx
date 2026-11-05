@@ -160,9 +160,9 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Button size="lg" variant="secondary" className="h-16 px-10 text-xl font-bold gap-3 shadow-xl hover:scale-105 transition-transform" asChild>
-              <a href="/free-operations-audit">
+              <a href="/contact">
                 <MessageSquare className="h-6 w-6" />
-                Get Your Free System Audit
+                Get in Touch
               </a>
             </Button>
           </div>

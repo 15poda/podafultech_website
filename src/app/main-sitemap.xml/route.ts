@@ -9,8 +9,6 @@ const PUBLIC_PATHS = [
   '/cookie-policy',
   '/affiliate-disclosure',
   '/disclaimer',
-  '/free-operations-audit',
-  '/inventory-assessment',
   '/portfolio/portfolio-loan-tracking',
   '/portfolio/portfolio-fabrication-pm',
   '/portfolio/portfolio-shipping-ai',
@@ -25,6 +23,8 @@ function xmlEscape(value: string) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 }
+
+export const dynamic = 'force-static';
 
 export async function GET() {
   const urls = Array.from(

@@ -1,12 +1,13 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
   typescript: {
     // Ensure type checking is enforced during build
     ignoreBuildErrors: false,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -34,7 +35,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // No specific changes needed for the route as Next.js automatically handles new pages in the `pages` directory.
 };
 
 export default nextConfig;
